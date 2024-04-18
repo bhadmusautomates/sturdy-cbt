@@ -6,18 +6,13 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:    
-    - name: 'BrowserStack Env Setup'
+    - name: 'Env Setup and Run Cypress'
       uses: 'browserstack/github-actions/setup-env@master'
+    - uses: actions/checkout@v4
+    - uses: cypress-io/github-action@v6
       with:
         username:  ${{ secrets.BROWSERSTACK_USERNAME }}
         access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-    - name: Checkout
-      uses: actions/checkout@v4
-    # Install NPM dependencies, cache them correctly
-    # and run all Cypress tests
-    - name: Cypress run
-      uses: cypress-io/github-action@v6
-      env:
         CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
-    - run: npx browserstack-cypress run --config --nv 18.17.0 --env CYPRESS_MAILSLURP_API_KEY=dca3b5c13a989a8eae5fa47f403f6e35f43adef136c75d9fda889d601a7b1bfe
+    - run: npx browserstack-cypress run --config --nv 18.17.0 
     
