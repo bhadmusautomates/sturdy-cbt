@@ -10,16 +10,6 @@ async function setupNodeEvents (on, config){
 }
 
 module.exports = defineConfig({
-  reporter: '@reportportal/agent-js-cypress',
-  reporterOptions: {
-    endpoint: 'http://localhost:8080/ui',
-    apiKey: 'testkey_IWiPPHICQKSmj0uuqCJ6AFiKio3eJqOpomUTA5v5-PiX18uOUQb6XlpiIjUOEQbh',
-    launch: 'LAUNCH_NAME',
-    project: 'PROJECT_NAME',
-    description: 'LAUNCH_DESCRIPTION',
-    parallel: true,
-    debug: true,
-  },
   e2e: {
     baseUrl:'https://staging.trymima.com/',
     defaultCommandTimeout: 10000,
