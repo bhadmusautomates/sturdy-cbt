@@ -1,8 +1,4 @@
 {
-    "auth": {
-    "username": "BROWSERSTACK_USERNAME",
-    "access_key": "BROWSERSTACK_ACCESS_KEY"
-  },
     "browsers": [
         {
             "browser": "chrome",
@@ -25,7 +21,6 @@
         "build_name": "mimatraining",
         "exclude": [],
         "parallels": "3",
-        "system_env_vars": ["CYPRESS_MAILSLURP_API_KEY"],
         "npm_dependencies": {
             "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
             "@cypress/browserify-preprocessor": "^3.0.2",
@@ -39,10 +34,7 @@
         "headless": true
     },
     "connection_settings": {
-        "local": true,
-        "local_identifier": null,
-        "local_mode": "always_on",
-        "local_config_file": null
+        "local": true
     },
     "disable_usage_reporting": false
 }
