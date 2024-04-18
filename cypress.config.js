@@ -1,13 +1,11 @@
 const { defineConfig } = require("cypress");
 const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin');
 
 async function setupNodeEvents (on, config){
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
 
   on("file:preprocessor", browserify.default(config));
-  await registerReportPortalPlugin(on, config);
   return config;
 }
 
