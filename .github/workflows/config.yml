@@ -6,13 +6,16 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:    
-    - name: 'Env Setup and Run Cypress'
+    - name: Env Setup
       uses: actions/checkout@v4
     - uses: actions/setup-node@v2
       with:
-        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-    - name: Run Cypress
+        node-version: '18'
+    - name: Run Cypress <> BrowserStack
       uses: cypress-io/github-action@v6
+      env:
+        CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
+        BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
+        BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
     - run: npx browserstack-cypress run --config --nv 18.17.0 
     
