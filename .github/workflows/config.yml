@@ -11,7 +11,7 @@ jobs:
       with:
         username:  ${{ secrets.BROWSERSTACK_USERNAME }}
         access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-        MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
+        CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
     - name: Checkout
       uses: actions/checkout@v4
     # Install NPM dependencies, cache them correctly
@@ -20,5 +20,5 @@ jobs:
       uses: cypress-io/github-action@v6
       env:
         CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
-    - run: npx browserstack-cypress run 
+    - run: npx browserstack-cypress run --nv 18.17.0
     
