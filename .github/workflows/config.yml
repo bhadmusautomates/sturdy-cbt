@@ -1,6 +1,8 @@
 name: Cypress Tests
 
 on: [push]
+env:
+  CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
 
 jobs:
   cypress-run:
@@ -12,12 +14,12 @@ jobs:
     - name: Run Cypress 
       uses: cypress-io/github-action@v6
       env:
-        CYPRESS_MAILSLURP_API_KEY: ${{secrets.CYPRESS_MAILSLURP_API_KEY}}
+        CYPRESS_MAILSLURP_API_KEY: $CYPRESS_MAILSLURP_API_KEY
 
-    - name: Run Browserstack
+    - name: Setup Browserstack
       uses: browserstack/github-actions/setup-env@master
       with:
         username: ${{secrets.BROWSERSTACK_USERNAME}}
         access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
-    - run: npx browserstack-cypress run --config --nv 18.17.0 --env CYPRESS_MAILSLURP_API_KEY=$CYPRESS_MAILSLURP_API_KEY
+    - run: npx browserstack-cypress run --sync  --env CYPRESS_MAILSLURP_API_KEY=$CYPRESS_MAILSLURP_API_KEY --nv 18.17.0
     
