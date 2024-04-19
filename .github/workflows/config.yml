@@ -17,6 +17,7 @@ jobs:
     - name: Setup Browserstack
       uses: browserstack/github-actions/setup-env@master
       with:
+        node-version: 20
         username: ${{secrets.BROWSERSTACK_USERNAME}}
         access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
     - run: npx browserstack-cypress run --nv 18.17.0

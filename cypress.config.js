@@ -18,7 +18,7 @@ module.exports = defineConfig({
     specPattern: '**/*.feature',
     watchForFileChanges: false,
     env: {
-      "MAILSLURP_API_KEY": "dca3b5c13a989a8eae5fa47f403f6e35f43adef136c75d9fda889d601a7b1bfe"
+      "MAILSLURP_API_KEY": "ee56382ae589ba46dd3a64e12061c912adfab92c25c4dc5c9c98e537ca5114bb"
     },
     setupNodeEvents,
   },
