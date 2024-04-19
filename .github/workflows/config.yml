@@ -19,5 +19,5 @@ jobs:
       with:
         username: ${{secrets.BROWSERSTACK_USERNAME}}
         access-key: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
-    - run: npx browserstack-cypress run --sync  --env CYPRESS_MAILSLURP_API_KEY=$CYPRESS_MAILSLURP_API_KEY --nv 18.17.0
+    - run: npx browserstack-cypress run --nv 18.17.0
     
