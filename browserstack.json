@@ -21,6 +21,7 @@
         "build_name": "mimatraining",
         "exclude": [],
         "parallels": "3",
+        "system_env_vars": ["CYPRESS_MAILSLURP_API_KEY"],
         "npm_dependencies": {
             "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
             "@cypress/browserify-preprocessor": "^3.0.2",
